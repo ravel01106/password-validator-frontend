@@ -1,3 +1,5 @@
+import Title from "../components/Title"
+
 const WelcomeScreen = () => {
   return (
     <div className='w-mainContainerWidth
@@ -6,11 +8,7 @@ const WelcomeScreen = () => {
     flex-col items-center justify-evenly
     '>
       <div className='text-center'>
-        <div className='bg-titleColor w-subContainerWidth h-36 flex items-center rounded-medium'>
-          <h2 className="text-4xl font-bold">
-            Welcome to password validator app !!!
-          </h2>
-        </div>
+        <Title title="Welcome to password validator app !!!"/>
         <p className='text-white mt-6 text-lg'>
           Choose one of the following options:
         </p>
