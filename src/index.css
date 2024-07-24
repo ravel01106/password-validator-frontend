@@ -32,3 +32,13 @@ body {
   background: rgb(10,7,123);
   background: linear-gradient(45deg, rgba(10,7,123,1) 0%, rgba(0,199,211,1) 100%);
 }
+
+.App-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(10,7,123);
+  background: linear-gradient(45deg, rgba(10,7,123,1) 0%, rgba(0,199,211,1) 100%);
+}

@@ -7,14 +7,13 @@ import PasswordValidatorScreen from './screen/PasswordValidatorScreen'
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<WelcomeScreen />}/>
-        <Route path="/validator" element={<FormValidatorScreen />}/>
-        <Route path="/validator/password" element={<PasswordValidatorScreen />}/>
-      </Routes>
-
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<WelcomeScreen />} />
+          <Route path="/validator" element={<FormValidatorScreen />} />
+          <Route path="/validator/password" element={<PasswordValidatorScreen />} />
+        </Routes>
+      </BrowserRouter>
   )
 }
 
