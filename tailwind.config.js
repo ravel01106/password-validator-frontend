@@ -16,6 +16,9 @@ export default {
         'mainContainerHeigth': '80vh',
         'buttonsContainerWidth': "40vw",
         'subContainerWidth': "32rem",
+        'formContainerWidth': "32rem",
+        'formContainerHeigth': "55vh",
+        '13': "3.25rem",
       },
       borderRadius: {
         'none': '0',
