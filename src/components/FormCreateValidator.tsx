@@ -1,11 +1,11 @@
 import React from "react"
 import { TbPointFilled } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
-import { IValidatorFrom } from "../interfaces/ValidadorForm"
+import { IValidatorFrom } from "../interfaces/IValidadorForm"
 
 const FormCreateValidator = () => {
   const initCurrentValidator: IValidatorFrom = {
-    lengthValid:"0",
+    lengthValid:"1",
     containUppercaseInput: "false",
     containLowercaseInput: "false",
     containNumberInput: "false",
@@ -24,6 +24,7 @@ const FormCreateValidator = () => {
   }
 
   const navigateToPasswordValidator = () => {
+
     navigate(link)
   }
   return (
@@ -39,7 +40,7 @@ const FormCreateValidator = () => {
         </div>
 
         <input type="number" id="lengthValid"
-          name="lengthValid" min={0} max={100} value={currentValidator.lengthValid}
+          name="lengthValid" min={1} max={100} value={currentValidator.lengthValid}
           className="bg-white border border-black"
           onChange={handleInputChange}/>
 
