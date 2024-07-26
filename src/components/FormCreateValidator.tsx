@@ -2,6 +2,9 @@ import React from "react"
 import { TbPointFilled } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
 import { IValidatorFrom } from "../interfaces/IValidadorForm"
+import { IValidator } from "../interfaces/IValidator"
+import Convert from "../utils/Convert"
+import ValidatorContext from "../context/ValidatorContext"
 
 const FormCreateValidator = () => {
   const initCurrentValidator: IValidatorFrom = {
@@ -11,19 +14,28 @@ const FormCreateValidator = () => {
     containNumberInput: "false",
     containUnderscoreInput: "false"
   }
-  const [currentValidator, setCurentValidator] = React.useState(initCurrentValidator);
+  const [currentValidatorForm, setCurentValidatorForm] = React.useState(initCurrentValidator);
 
   const link = "/validator/password"
   const navigate = useNavigate()
+  const {setValidator} = React.useContext(ValidatorContext)
 
   const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    setCurentValidator({
-      ...currentValidator,
+    setCurentValidatorForm({
+      ...currentValidatorForm,
       [e.target.name]: e.target.value
     })
   }
 
   const navigateToPasswordValidator = () => {
+    const validator: IValidator = {
+      lengthValid: Convert.convertStringToNumber(currentValidatorForm.lengthValid),
+      containUppercase: Convert.convertStringToBoolean(currentValidatorForm.containUppercaseInput),
+      containLowercase: Convert.convertStringToBoolean(currentValidatorForm.containLowercaseInput),
+      containNumber: Convert.convertStringToBoolean(currentValidatorForm.containNumberInput),
+      containUndersocre: Convert.convertStringToBoolean(currentValidatorForm.containUnderscoreInput)
+    }
+    setValidator(validator)
 
     navigate(link)
   }
@@ -40,7 +52,7 @@ const FormCreateValidator = () => {
         </div>
 
         <input type="number" id="lengthValid"
-          name="lengthValid" min={1} max={100} value={currentValidator.lengthValid}
+          name="lengthValid" min={1} max={100} value={currentValidatorForm.lengthValid}
           className="bg-white border border-black"
           onChange={handleInputChange}/>
 
@@ -58,7 +70,7 @@ const FormCreateValidator = () => {
             <label htmlFor="YesUppercase">Yes</label>
             <input type="radio" name="containUppercaseInput"
               value={"true"} id="YesUppercase"
-              checked={currentValidator.containUppercaseInput === "true"}
+              checked={currentValidatorForm.containUppercaseInput === "true"}
               onChange={handleInputChange}/>
           </div>
 
@@ -66,7 +78,7 @@ const FormCreateValidator = () => {
             <label htmlFor="NoUppercase">No</label>
             <input type="radio" name="containUppercaseInput"
               id="NoUppercase" value={"false"}
-              checked={currentValidator.containUppercaseInput === "false"}
+              checked={currentValidatorForm.containUppercaseInput === "false"}
               onChange={handleInputChange}/>
           </div>
 
@@ -87,7 +99,7 @@ const FormCreateValidator = () => {
             <label htmlFor="YesLowercase">Yes</label>
             <input type="radio" name="containLowercaseInput"
               id="YesLowercase" value={"true"}
-              checked={currentValidator.containLowercaseInput === "true"}
+              checked={currentValidatorForm.containLowercaseInput === "true"}
               onChange={handleInputChange}/>
           </div>
 
@@ -95,7 +107,7 @@ const FormCreateValidator = () => {
             <label htmlFor="NoLowercase">No</label>
             <input type="radio" name="containLowercaseInput"
               id="NoLowercase" value={"false"}
-              checked={currentValidator.containLowercaseInput === "false"}
+              checked={currentValidatorForm.containLowercaseInput === "false"}
               onChange={handleInputChange}/>
           </div>
 
@@ -117,7 +129,7 @@ const FormCreateValidator = () => {
             <label htmlFor="YesNumber">Yes</label>
             <input type="radio" id="YesNumber"
               name="containNumberInput" value={"true"}
-              checked={currentValidator.containNumberInput === "true"}
+              checked={currentValidatorForm.containNumberInput === "true"}
               onChange={handleInputChange}/>
           </div>
 
@@ -125,7 +137,7 @@ const FormCreateValidator = () => {
             <label htmlFor="NoNumber">No</label>
             <input type="radio" id="NoNumber"
               name="containNumberInput" value={"false"}
-              checked={currentValidator.containNumberInput === "false"}
+              checked={currentValidatorForm.containNumberInput === "false"}
               onChange={handleInputChange}/>
           </div>
 
@@ -145,7 +157,7 @@ const FormCreateValidator = () => {
             <label htmlFor="YesUnderscore">Yes</label>
             <input type="radio" id="YesUnderscore"
               name="containUnderscoreInput" value={"true"}
-              checked={currentValidator.containUnderscoreInput === "true"}
+              checked={currentValidatorForm.containUnderscoreInput === "true"}
               onChange={handleInputChange}/>
           </div>
 
@@ -153,7 +165,7 @@ const FormCreateValidator = () => {
             <label htmlFor="NoUnderscore">No</label>
             <input type="radio" id="NoUnderscore"
               name="containUnderscoreInput" value={"false"}
-              checked={currentValidator.containUnderscoreInput === "false"}
+              checked={currentValidatorForm.containUnderscoreInput === "false"}
               onChange={handleInputChange}/>
           </div>
         </div>
