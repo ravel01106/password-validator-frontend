@@ -1,9 +1,27 @@
+import React from "react"
 import { TbPointFilled } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
+import { IValidatorFrom } from "../interfaces/ValidadorForm"
 
 const FormCreateValidator = () => {
+  const initCurrentValidator: IValidatorFrom = {
+    lengthValid:"0",
+    containUppercaseInput: "false",
+    containLowercaseInput: "false",
+    containNumberInput: "false",
+    containUnderscoreInput: "false"
+  }
+  const [currentValidator, setCurentValidator] = React.useState(initCurrentValidator);
+
   const link = "/validator/password"
   const navigate = useNavigate()
+
+  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setCurentValidator({
+      ...currentValidator,
+      [e.target.name]: e.target.value
+    })
+  }
 
   const navigateToPasswordValidator = () => {
     navigate(link)
@@ -21,8 +39,9 @@ const FormCreateValidator = () => {
         </div>
 
         <input type="number" id="lengthValid"
-          name="lengthValid" min={0} max={100} value={0}
-          className="bg-white border border-black" />
+          name="lengthValid" min={0} max={100} value={currentValidator.lengthValid}
+          className="bg-white border border-black"
+          onChange={handleInputChange}/>
 
       </div>
 
@@ -36,14 +55,18 @@ const FormCreateValidator = () => {
         <div className="w-32 flex flex-row justify-between">
           <div className="w-13 flex flex-row justify-between">
             <label htmlFor="YesUppercase">Yes</label>
-            <input type="radio" name="uppercase"
-              value={"true"} id="YesUppercase" />
+            <input type="radio" name="containUppercaseInput"
+              value={"true"} id="YesUppercase"
+              checked={currentValidator.containUppercaseInput === "true"}
+              onChange={handleInputChange}/>
           </div>
 
           <div className="w-13 flex flex-row justify-between">
             <label htmlFor="NoUppercase">No</label>
-            <input type="radio" name="uppercase"
-              id="NoUppercase" value={"false"} />
+            <input type="radio" name="containUppercaseInput"
+              id="NoUppercase" value={"false"}
+              checked={currentValidator.containUppercaseInput === "false"}
+              onChange={handleInputChange}/>
           </div>
 
         </div>
@@ -61,14 +84,18 @@ const FormCreateValidator = () => {
 
           <div className="w-13 flex flex-row justify-between">
             <label htmlFor="YesLowercase">Yes</label>
-            <input type="radio" name="lowercase"
-              id="YesLowercase" value={"true"} />
+            <input type="radio" name="containLowercaseInput"
+              id="YesLowercase" value={"true"}
+              checked={currentValidator.containLowercaseInput === "true"}
+              onChange={handleInputChange}/>
           </div>
 
           <div className="w-13 flex flex-row justify-between">
             <label htmlFor="NoLowercase">No</label>
-            <input type="radio" name="lowercase"
-              id="NoLowercase" value={"false"} />
+            <input type="radio" name="containLowercaseInput"
+              id="NoLowercase" value={"false"}
+              checked={currentValidator.containLowercaseInput === "false"}
+              onChange={handleInputChange}/>
           </div>
 
         </div>
@@ -88,13 +115,17 @@ const FormCreateValidator = () => {
           <div className="w-13 flex flex-row justify-between">
             <label htmlFor="YesNumber">Yes</label>
             <input type="radio" id="YesNumber"
-              name="number" value={"true"} />
+              name="containNumberInput" value={"true"}
+              checked={currentValidator.containNumberInput === "true"}
+              onChange={handleInputChange}/>
           </div>
 
           <div className="w-13 flex flex-row justify-between">
             <label htmlFor="NoNumber">No</label>
             <input type="radio" id="NoNumber"
-              name="number" value={"false"} />
+              name="containNumberInput" value={"false"}
+              checked={currentValidator.containNumberInput === "false"}
+              onChange={handleInputChange}/>
           </div>
 
         </div>
@@ -112,13 +143,17 @@ const FormCreateValidator = () => {
           <div className="w-13 flex flex-row justify-between">
             <label htmlFor="YesUnderscore">Yes</label>
             <input type="radio" id="YesUnderscore"
-              name="underscore" value={"true"} />
+              name="containUnderscoreInput" value={"true"}
+              checked={currentValidator.containUnderscoreInput === "true"}
+              onChange={handleInputChange}/>
           </div>
 
           <div className="w-13 flex flex-row justify-between">
             <label htmlFor="NoUnderscore">No</label>
             <input type="radio" id="NoUnderscore"
-              name="underscore" value={"false"} />
+              name="containUnderscoreInput" value={"false"}
+              checked={currentValidator.containUnderscoreInput === "false"}
+              onChange={handleInputChange}/>
           </div>
         </div>
 
