@@ -53,7 +53,7 @@ const FormCreateValidator = () => {
 
         <input type="number" id="lengthValid"
           name="lengthValid" min={1} max={100} value={currentValidatorForm.lengthValid}
-          className="bg-white border border-black"
+          className="bg-white border border-black w-32"
           onChange={handleInputChange}/>
 
       </div>

@@ -42,3 +42,10 @@ body {
   background: rgb(10,7,123);
   background: linear-gradient(45deg, rgba(10,7,123,1) 0%, rgba(0,199,211,1) 100%);
 }
+
+input[type="password"]{
+  
+    font: small-caption;
+    font-size: 25px;
+  
+}
