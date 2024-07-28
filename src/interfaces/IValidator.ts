@@ -3,5 +3,5 @@ export interface IValidator {
   containUppercase:boolean,
   containLowercase:boolean,
   containNumber:boolean,
-  containUndersocre:boolean
+  containUnderscore:boolean
 }

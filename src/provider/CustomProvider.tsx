@@ -10,7 +10,7 @@ const CustomProvider = ({children}:ICustomProviderProp) => {
     containUppercase:false,
     containLowercase:false,
     containNumber:false,
-    containUndersocre:false,
+    containUnderscore:false,
 
   }
 

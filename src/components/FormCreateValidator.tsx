@@ -33,7 +33,7 @@ const FormCreateValidator = () => {
       containUppercase: Convert.convertStringToBoolean(currentValidatorForm.containUppercaseInput),
       containLowercase: Convert.convertStringToBoolean(currentValidatorForm.containLowercaseInput),
       containNumber: Convert.convertStringToBoolean(currentValidatorForm.containNumberInput),
-      containUndersocre: Convert.convertStringToBoolean(currentValidatorForm.containUnderscoreInput)
+      containUnderscore: Convert.convertStringToBoolean(currentValidatorForm.containUnderscoreInput)
     }
     setValidator(validator)
 

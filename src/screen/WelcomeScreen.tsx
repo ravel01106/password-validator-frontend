@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import Title from "../components/Title"
+import ValidatorContext from "../context/ValidatorContext";
+import React from "react";
+import { IValidator } from "../interfaces/IValidator";
 
 const WelcomeScreen = () => {
   const linkToValidatorFrom = "/validator";
   const linkToPasswordValidator = "/validator/password";
+  const {setValidator} = React.useContext(ValidatorContext)
   const navigate = useNavigate();
 
   const navigateToValidatorForm = () => {
@@ -11,6 +15,14 @@ const WelcomeScreen = () => {
   }
 
   const navigateToPasswordValidator = () => {
+    const validatorDefault:IValidator = {
+      lengthValid:1,
+      containUppercase:false,
+      containLowercase:false,
+      containNumber:false,
+      containUnderscore:false
+    }
+    setValidator(validatorDefault)
     navigate(linkToPasswordValidator)
   }
 
