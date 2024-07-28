@@ -2,9 +2,17 @@ import { useState } from "react"
 import Title from "../components/Title"
 
 const PasswordValidatorScreen = () => {
+  const [password, setPassword] = useState("");
   const [showResult, setShowResult] = useState(false);
   const sendPasswordToValidate = () => {
-    setShowResult(true)
+    if (password === ""){
+      alert("fill the field !!!!")
+    }else{
+      setShowResult(true)
+    }
+  }
+  const onHandleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value)
   }
   return (
     <div
@@ -15,7 +23,8 @@ const PasswordValidatorScreen = () => {
       <Title title="Validate your password"/>
       <div className="w-96 h-32 flex flex-col items-center justify-between">
       <input type="password" className="bg-white w-96 h-14 
-      rounded-full px-6 text-black"/>
+      rounded-full px-6 text-black" value={password}
+      onChange={onHandleChange}/>
       <button type="button" className="bg-buttonColor hover:bg-buttonHover 
         h-14 w-48 flex flex-row justify-center items-center text-black 
         rounded-full text-2xl font-bold"
