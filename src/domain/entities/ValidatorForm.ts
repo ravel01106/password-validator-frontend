@@ -1,4 +1,4 @@
-export interface IValidatorFrom {
+export type ValidatorForm = {
   lengthValid:string,
   containUppercaseInput:string,
   containLowercaseInput:string,

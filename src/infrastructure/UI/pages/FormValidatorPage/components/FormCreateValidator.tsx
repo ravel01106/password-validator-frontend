@@ -1,13 +1,13 @@
 import React from "react"
 import { TbPointFilled } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
-import { IValidatorFrom } from "../../../../../domain/entities/IValidadorForm"
+import { ValidatorForm } from "../../../../../domain/entities/ValidatorForm"
 import ValidatorContext from "../../../context/ValidatorContext"
 import ConvertUtils from "../../../../../utils/ConvertUtils"
 import { IValidator } from "../../../../../domain/entities/IValidator"
 
 const FormCreateValidator = () => {
-  const initCurrentValidator: IValidatorFrom = {
+  const initCurrentValidator: ValidatorForm = {
     lengthValid:"1",
     containUppercaseInput: "false",
     containLowercaseInput: "false",
