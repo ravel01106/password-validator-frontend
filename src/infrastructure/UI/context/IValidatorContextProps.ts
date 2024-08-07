@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { IValidator } from "./IValidator";
+import { IValidator } from "../domain/IValidator";
 
 export interface IValidatorContextProps {
   validator:IValidator,

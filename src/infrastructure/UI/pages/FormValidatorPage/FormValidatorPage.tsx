@@ -1,7 +1,8 @@
-import FormCreateValidator from "../components/FormCreateValidator";
-import Title from "../components/Title"
 
-const FormValidatorScreen = () => {
+import Title from "../../shared/Title"
+import FormCreateValidator from "./components/FormCreateValidator"
+
+const FormValidatorPage = () => {
 
   return (
     <div className="-mainContainerWidth
@@ -14,4 +15,4 @@ const FormValidatorScreen = () => {
   )
 }
 
-export default FormValidatorScreen
+export default FormValidatorPage
