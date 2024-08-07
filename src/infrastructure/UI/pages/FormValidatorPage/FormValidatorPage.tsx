@@ -1,7 +1,7 @@
 import FormCreateValidator from "../../../../components/FormCreateValidator"
 import Title from "../../../../components/Title"
 
-const FormValidatorScreen = () => {
+const FormValidatorPage = () => {
 
   return (
     <div className="-mainContainerWidth
@@ -14,4 +14,4 @@ const FormValidatorScreen = () => {
   )
 }
 
-export default FormValidatorScreen
+export default FormValidatorPage
