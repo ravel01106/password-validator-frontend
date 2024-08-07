@@ -1,6 +1,6 @@
 import React from 'react'
 import { ICustomProviderProp } from './ICustomProviderProp'
-import { IValidator } from '../../../domain/IValidator'
+import { IValidator } from '../../../domain/entities/IValidator'
 import ValidatorContext from '../context/ValidatorContext'
 import { IValidatorContextProps } from '../context/IValidatorContextProps'
 

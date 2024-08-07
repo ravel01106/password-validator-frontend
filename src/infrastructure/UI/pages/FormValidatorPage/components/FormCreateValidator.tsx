@@ -1,10 +1,10 @@
 import React from "react"
 import { TbPointFilled } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
-import { IValidatorFrom } from "../../../../../domain/IValidadorForm"
+import { IValidatorFrom } from "../../../../../domain/entities/IValidadorForm"
 import ValidatorContext from "../../../context/ValidatorContext"
 import Convert from "../../../../../utils/Convert"
-import { IValidator } from "../../../../../domain/IValidator"
+import { IValidator } from "../../../../../domain/entities/IValidator"
 
 const FormCreateValidator = () => {
   const initCurrentValidator: IValidatorFrom = {
