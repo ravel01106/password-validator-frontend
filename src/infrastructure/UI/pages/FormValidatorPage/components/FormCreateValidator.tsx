@@ -3,8 +3,8 @@ import { TbPointFilled } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
 import { ValidatorForm } from "../../../../../domain/entities/ValidatorForm"
 import ValidatorContext from "../../../context/ValidatorContext"
-import ConvertUtils from "../../../../../utils/ConvertUtils"
 import { Validator } from "../../../../../domain/entities/Validator"
+import ValidatorService from "../../../../../domain/services/ValidatorService"
 
 const FormCreateValidator = () => {
   const initCurrentValidator: ValidatorForm = {
@@ -28,15 +28,8 @@ const FormCreateValidator = () => {
   }
 
   const navigateToPasswordValidator = () => {
-    const validator: Validator = {
-      lengthValid: ConvertUtils.convertStringToNumber(currentValidatorForm.lengthValid),
-      containUppercase: ConvertUtils.convertStringToBoolean(currentValidatorForm.containUppercaseInput),
-      containLowercase: ConvertUtils.convertStringToBoolean(currentValidatorForm.containLowercaseInput),
-      containNumber: ConvertUtils.convertStringToBoolean(currentValidatorForm.containNumberInput),
-      containUnderscore: ConvertUtils.convertStringToBoolean(currentValidatorForm.containUnderscoreInput)
-    }
+    const validator: Validator = ValidatorService.convertValidatorFormToValidator(currentValidatorForm)
     setValidator(validator)
-
     navigate(link)
   }
   return (
