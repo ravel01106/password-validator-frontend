@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import Title from "../../../../components/Title";
+import Title from "../../shared/Title"
 
 const WelcomePage = () => {
   const linkToValidatorFrom = "/validator";

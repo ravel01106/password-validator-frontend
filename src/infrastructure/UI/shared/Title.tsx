@@ -1,4 +1,4 @@
-import { TitleProp } from "../interfaces/TitleProps"
+import { TitleProp } from "../../../interfaces/TitleProps"
 
 const Title = ({title}:TitleProp) => {
   return (

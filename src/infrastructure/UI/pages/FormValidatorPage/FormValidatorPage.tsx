@@ -1,4 +1,5 @@
-import Title from "../../../../components/Title"
+
+import Title from "../../shared/Title"
 import FormCreateValidator from "./components/FormCreateValidator"
 
 const FormValidatorPage = () => {
