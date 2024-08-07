@@ -1,7 +1,7 @@
 import React from "react"
 import { TbPointFilled } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
-import { IValidatorFrom } from "../interfaces/IValidadorForm"
+import { IValidatorFrom } from "../domain/IValidadorForm"
 import { IValidator } from "../interfaces/IValidator"
 import Convert from "../utils/Convert"
 import ValidatorContext from "../context/ValidatorContext"
