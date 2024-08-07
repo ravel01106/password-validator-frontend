@@ -3,7 +3,7 @@ import './App.css'
 import FormValidatorScreen from './screen/FormValidatorScreen'
 import PasswordValidatorScreen from './screen/PasswordValidatorScreen'
 import CustomProvider from './infrastructure/UI/provider/CustomProvider'
-import WelcomeScreen from './infrastructure/UI/pages/WelcomePage/WelcomeScreen'
+import WelcomePage from './infrastructure/UI/pages/WelcomePage/WelcomePage'
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
       <CustomProvider>
         <BrowserRouter>
         <Routes>
-          <Route path='/' element={<WelcomeScreen />} />
+          <Route path='/' element={<WelcomePage />} />
           <Route path="/validator" element={<FormValidatorScreen />} />
           <Route path="/validator/password" element={<PasswordValidatorScreen />} />
         </Routes>

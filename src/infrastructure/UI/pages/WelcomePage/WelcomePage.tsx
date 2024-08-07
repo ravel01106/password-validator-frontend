@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import Title from "../../../../components/Title";
 
-const WelcomeScreen = () => {
+const WelcomePage = () => {
   const linkToValidatorFrom = "/validator";
   const linkToPasswordValidator = "/validator/password";
   const navigate = useNavigate();
@@ -44,4 +44,4 @@ const WelcomeScreen = () => {
   )
 }
 
-export default WelcomeScreen
+export default WelcomePage
