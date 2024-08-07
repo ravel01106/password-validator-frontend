@@ -7,9 +7,9 @@ const convertStringToBoolean = (expression:string) => {
 
 }
 
-const Convert = {
+const ConvertUtils = {
   convertStringToNumber,
   convertStringToBoolean
 }
 
-export default Convert;
+export default ConvertUtils;

@@ -3,7 +3,7 @@ import { TbPointFilled } from "react-icons/tb"
 import { useNavigate } from "react-router-dom"
 import { IValidatorFrom } from "../../../../../domain/entities/IValidadorForm"
 import ValidatorContext from "../../../context/ValidatorContext"
-import Convert from "../../../../../utils/Convert"
+import ConvertUtils from "../../../../../utils/ConvertUtils"
 import { IValidator } from "../../../../../domain/entities/IValidator"
 
 const FormCreateValidator = () => {
@@ -29,11 +29,11 @@ const FormCreateValidator = () => {
 
   const navigateToPasswordValidator = () => {
     const validator: IValidator = {
-      lengthValid: Convert.convertStringToNumber(currentValidatorForm.lengthValid),
-      containUppercase: Convert.convertStringToBoolean(currentValidatorForm.containUppercaseInput),
-      containLowercase: Convert.convertStringToBoolean(currentValidatorForm.containLowercaseInput),
-      containNumber: Convert.convertStringToBoolean(currentValidatorForm.containNumberInput),
-      containUnderscore: Convert.convertStringToBoolean(currentValidatorForm.containUnderscoreInput)
+      lengthValid: ConvertUtils.convertStringToNumber(currentValidatorForm.lengthValid),
+      containUppercase: ConvertUtils.convertStringToBoolean(currentValidatorForm.containUppercaseInput),
+      containLowercase: ConvertUtils.convertStringToBoolean(currentValidatorForm.containLowercaseInput),
+      containNumber: ConvertUtils.convertStringToBoolean(currentValidatorForm.containNumberInput),
+      containUnderscore: ConvertUtils.convertStringToBoolean(currentValidatorForm.containUnderscoreInput)
     }
     setValidator(validator)
 
