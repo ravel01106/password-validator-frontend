@@ -1,5 +1,5 @@
 import React from "react";
-import { IValidatorContextProps } from "../interfaces/IValidatorContextProps";
+import { IValidatorContextProps } from "./IValidatorContextProps";
 
 const ValidatorContext = React.createContext({} as IValidatorContextProps)
 
