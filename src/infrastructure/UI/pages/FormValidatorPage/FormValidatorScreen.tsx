@@ -1,5 +1,5 @@
-import FormCreateValidator from "../components/FormCreateValidator";
-import Title from "../components/Title"
+import FormCreateValidator from "../../../../components/FormCreateValidator"
+import Title from "../../../../components/Title"
 
 const FormValidatorScreen = () => {
 
