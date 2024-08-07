@@ -1,4 +1,6 @@
+import ValidatorRepository from "../../infrastructure/repository/ValidatorRepository";
 import ConvertUtils from "../../utils/ConvertUtils";
+import { PasswordValidatorResult } from "../entities/PasswordValidatorResult";
 import { Validator } from "../entities/Validator";
 import { ValidatorForm } from "../entities/ValidatorForm";
 
@@ -10,11 +12,15 @@ const convertValidatorFormToValidator = (validatorForm:ValidatorForm): Validator
     containNumber: ConvertUtils.convertStringToBoolean(validatorForm.containNumberInput),
     containUnderscore: ConvertUtils.convertStringToBoolean(validatorForm.containUnderscoreInput)
   }
+}
 
+const validatePassword = async (validator:Validator, password:string): Promise<PasswordValidatorResult> => {
+  return ValidatorRepository.validatePassword(validator, password)
 }
 
 const ValidatorService = {
-  convertValidatorFormToValidator
+  convertValidatorFormToValidator,
+  validatePassword
 }
 
 export default ValidatorService
