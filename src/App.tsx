@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import PasswordValidatorScreen from './screen/PasswordValidatorScreen'
+import PasswordValidatorScreen from './infrastructure/UI/pages/PasswordValidatorPage/PasswordValidatorScreen'
 import CustomProvider from './infrastructure/UI/provider/CustomProvider'
 import WelcomePage from './infrastructure/UI/pages/WelcomePage/WelcomePage'
 import FormValidatorPage from './infrastructure/UI/pages/FormValidatorPage/FormValidatorPage'
