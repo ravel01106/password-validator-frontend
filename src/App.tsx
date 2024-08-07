@@ -3,7 +3,7 @@ import './App.css'
 import WelcomeScreen from './screen/WelcomeScreen'
 import FormValidatorScreen from './screen/FormValidatorScreen'
 import PasswordValidatorScreen from './screen/PasswordValidatorScreen'
-import CustomProvider from './provider/CustomProvider'
+import CustomProvider from './infrastructure/UI/provider/CustomProvider'
 
 function App() {
 
