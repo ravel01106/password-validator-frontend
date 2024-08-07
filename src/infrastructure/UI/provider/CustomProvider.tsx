@@ -1,11 +1,11 @@
 import React from 'react'
 import { ICustomProviderProp } from './ICustomProviderProp'
-import { IValidator } from '../../../domain/entities/IValidator'
+import { Validator } from '../../../domain/entities/Validator'
 import ValidatorContext from '../context/ValidatorContext'
 import { IValidatorContextProps } from '../context/IValidatorContextProps'
 
 const CustomProvider = ({children}:ICustomProviderProp) => {
-  const initValidator:IValidator= {
+  const initValidator:Validator= {
     lengthValid:1,
     containUppercase:false,
     containLowercase:false,

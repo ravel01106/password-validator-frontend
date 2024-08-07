@@ -1,4 +1,4 @@
-export interface IValidator {
+export type Validator = {
   lengthValid:number,
   containUppercase:boolean,
   containLowercase:boolean,

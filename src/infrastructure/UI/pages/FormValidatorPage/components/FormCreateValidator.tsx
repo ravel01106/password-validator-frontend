@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { ValidatorForm } from "../../../../../domain/entities/ValidatorForm"
 import ValidatorContext from "../../../context/ValidatorContext"
 import ConvertUtils from "../../../../../utils/ConvertUtils"
-import { IValidator } from "../../../../../domain/entities/IValidator"
+import { Validator } from "../../../../../domain/entities/Validator"
 
 const FormCreateValidator = () => {
   const initCurrentValidator: ValidatorForm = {
@@ -28,7 +28,7 @@ const FormCreateValidator = () => {
   }
 
   const navigateToPasswordValidator = () => {
-    const validator: IValidator = {
+    const validator: Validator = {
       lengthValid: ConvertUtils.convertStringToNumber(currentValidatorForm.lengthValid),
       containUppercase: ConvertUtils.convertStringToBoolean(currentValidatorForm.containUppercaseInput),
       containLowercase: ConvertUtils.convertStringToBoolean(currentValidatorForm.containLowercaseInput),
