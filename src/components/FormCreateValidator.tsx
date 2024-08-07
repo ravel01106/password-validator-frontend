@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { IValidatorFrom } from "../domain/IValidadorForm"
 import { IValidator } from "../domain/IValidator"
 import Convert from "../utils/Convert"
-import ValidatorContext from "../context/ValidatorContext"
+import ValidatorContext from "../infrastructure/UI/context/ValidatorContext"
 
 const FormCreateValidator = () => {
   const initCurrentValidator: IValidatorFrom = {
