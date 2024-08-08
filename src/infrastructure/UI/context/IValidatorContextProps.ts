@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
-import { IValidator } from "../domain/IValidator";
+import { Validator } from "../../../domain/entities/Validator";
 
 export interface IValidatorContextProps {
-  validator:IValidator,
-  setValidator: Dispatch<SetStateAction<IValidator>>
+  validator:Validator,
+  setValidator: Dispatch<SetStateAction<Validator>>
 }
