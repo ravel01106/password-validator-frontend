@@ -1,16 +1,21 @@
 import { useNavigate } from "react-router-dom"
 import Title from "../../shared/Title"
+import React from "react";
+import ValidatorContext from "../../context/ValidatorContext";
+import ValidatorService from "../../../../domain/services/ValidatorService";
 
 const WelcomePage = () => {
   const linkToValidatorFrom = "/validator";
   const linkToPasswordValidator = "/validator/password";
   const navigate = useNavigate();
+  const {setValidator} = React.useContext(ValidatorContext);
 
   const navigateToValidatorForm = () => {
     navigate(linkToValidatorFrom)
   }
 
   const navigateToPasswordValidator = () => {
+    setValidator(ValidatorService.getDefaultValidator())
     navigate(linkToPasswordValidator)
   }
 
