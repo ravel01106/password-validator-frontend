@@ -10,6 +10,8 @@ export default {
         'buttonColor': "#00E1C6",
         'buttonHover': "#21A091",
         'titleColor' : "#150099",
+        'ResultValidColor': "#8EE79C",
+        'ResultNotValidColor': "#E58585",
       },
       spacing: {
         'mainContainerWidth': '60vw',

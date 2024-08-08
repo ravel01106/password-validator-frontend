@@ -1,18 +1,44 @@
 import React from "react";
 import Title from "../../shared/Title";
+import { PasswordValidatorResult } from "../../../../domain/entities/PasswordValidatorResult";
+import { FaCheckCircle } from "react-icons/fa";
 
 const PasswordValidatorPage = () => {
   const [password, setPassword] = React.useState("");
   const [showResult, setShowResult] = React.useState(false);
+
+  const [passwordValidatorResult, setPasswordValidatorResult] = React.useState({} as PasswordValidatorResult)
+
   const sendPasswordToValidate = () => {
     if (password === ""){
       alert("fill the field !!!!")
     }else{
       setShowResult(true)
+      setPasswordValidatorResult({
+        valid: true,
+        errorMessage: ""
+      })
     }
   }
   const onHandleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
+  }
+
+  const renderMessageResult = ():JSX.Element => {
+    return (
+      <div className={`h-64 w-subContainerWidth
+      ${passwordValidatorResult.valid ? "bg-ResultValidColor": "bg-ResultNotValidColor"} rounded-3xl
+      flex flex-col justify-evenly items-center`}>
+        <p className="text-2xl text-black font-bold">The password is {passwordValidatorResult.valid ? "valid": "not valid"} !!!</p>
+        <div className="w-96">
+          <nav className="flex flex-row text-black text-xl pb-1"> <FaCheckCircle /> <p className="px-4">Check length</p></nav>
+          <nav className="flex flex-row text-black text-xl pb-1"> <FaCheckCircle /> <p className="px-4">Check uppercase</p></nav>
+          <nav className="flex flex-row text-black text-xl pb-1"> <FaCheckCircle /> <p className="px-4">Check numbers</p></nav>
+          <nav className="flex flex-row text-black text-xl pb-1"> <FaCheckCircle /> <p className="px-4">Check underscore</p></nav>
+          <nav className="flex flex-row text-black text-xl pb-1"> <FaCheckCircle /> <p className="px-4">Check lowercase</p></nav>
+        </div>
+      </div>
+    )
   }
   return (
     <div
@@ -33,9 +59,9 @@ const PasswordValidatorPage = () => {
       </div>
         {
           showResult ? (
-            <div className="h-64 w-subContainerWidth bg-green-500 rounded-3xl">
-
-            </div>
+            <>
+            {renderMessageResult()}
+            </>
           ): (
             <div className="h-64 w-subContainerWidth text-center">
               <p>Enter a password that meets the conditions of the validator.</p>
