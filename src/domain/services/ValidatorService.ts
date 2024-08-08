@@ -18,9 +18,20 @@ const validatePassword = async (validator:Validator, password:string): Promise<P
   return ValidatorRepository.validatePassword(validator, password)
 }
 
+const getDefaultValidator = (): Validator => {
+  return {
+    lengthValid: 1,
+    containLowercase: false,
+    containUppercase: false,
+    containNumber: false,
+    containUnderscore: false
+  }
+}
+
 const ValidatorService = {
   convertValidatorFormToValidator,
-  validatePassword
+  validatePassword,
+  getDefaultValidator
 }
 
 export default ValidatorService
