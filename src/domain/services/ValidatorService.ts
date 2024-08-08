@@ -1,16 +1,15 @@
 import ValidatorRepository from "../../infrastructure/repository/ValidatorRepository";
-import ConvertUtils from "../../utils/ConvertUtils";
 import { PasswordValidatorResult } from "../entities/PasswordValidatorResult";
 import { Validator } from "../entities/Validator";
 import { ValidatorForm } from "../entities/ValidatorForm";
 
 const convertValidatorFormToValidator = (validatorForm:ValidatorForm): Validator => {
   return {
-    lengthValid: ConvertUtils.convertStringToNumber(validatorForm.lengthValid),
-    containUppercase: ConvertUtils.convertStringToBoolean(validatorForm.containUppercaseInput),
-    containLowercase: ConvertUtils.convertStringToBoolean(validatorForm.containLowercaseInput),
-    containNumber: ConvertUtils.convertStringToBoolean(validatorForm.containNumberInput),
-    containUnderscore: ConvertUtils.convertStringToBoolean(validatorForm.containUnderscoreInput)
+    lengthValid: convertStringToNumber(validatorForm.lengthValid),
+    containUppercase: convertStringToBoolean(validatorForm.containUppercaseInput),
+    containLowercase: convertStringToBoolean(validatorForm.containLowercaseInput),
+    containNumber: convertStringToBoolean(validatorForm.containNumberInput),
+    containUnderscore: convertStringToBoolean(validatorForm.containUnderscoreInput)
   }
 }
 
@@ -26,6 +25,15 @@ const getDefaultValidator = (): Validator => {
     containNumber: false,
     containUnderscore: false
   }
+}
+
+const convertStringToNumber = (expression:string) => {
+  return !Number.isNaN(expression) ? parseInt(expression): 1;
+}
+
+const convertStringToBoolean = (expression:string) => {
+  return expression === "true" ? true: false;
+
 }
 
 const ValidatorService = {
