@@ -1,4 +1,4 @@
-export type PassowrdValidatorResultDTO = {
+export type PasswordValidatorResultDTO = {
   valid:boolean,
   errorMessage: string
 }
