@@ -1,4 +1,8 @@
 export type PasswordValidatorResult = {
   valid:boolean,
-  errorMessage: string
+  lengthValid:boolean
+  containUpperCase:boolean
+  containLowerCase:boolean
+  containNumber:boolean
+  containUnderscore:boolean
 }

@@ -16,7 +16,11 @@ const PasswordValidatorPage = () => {
       setShowResult(true)
       setPasswordValidatorResult({
         valid: true,
-        errorMessage: ""
+        lengthValid: true,
+        containUpperCase: true,
+        containLowerCase: true,
+        containNumber: true,
+        containUnderscore: true
       })
     }
   }
