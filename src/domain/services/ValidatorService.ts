@@ -6,10 +6,10 @@ import { ValidatorForm } from "../entities/ValidatorForm";
 const convertValidatorFormToValidator = (validatorForm:ValidatorForm): Validator => {
   return {
     lengthValid: convertStringToNumber(validatorForm.lengthValid),
-    containUppercase: convertStringToBoolean(validatorForm.containUppercaseInput),
-    containLowercase: convertStringToBoolean(validatorForm.containLowercaseInput),
-    containNumber: convertStringToBoolean(validatorForm.containNumberInput),
-    containUnderscore: convertStringToBoolean(validatorForm.containUnderscoreInput)
+    containsUpperCase: convertStringToBoolean(validatorForm.containUppercaseInput),
+    containsLowerCase: convertStringToBoolean(validatorForm.containLowercaseInput),
+    containsNumber: convertStringToBoolean(validatorForm.containNumberInput),
+    containsUnderscore: convertStringToBoolean(validatorForm.containUnderscoreInput)
   }
 }
 
@@ -20,10 +20,10 @@ const validatePassword = async (validator:Validator, password:string): Promise<P
 const getDefaultValidator = (): Validator => {
   return {
     lengthValid: 1,
-    containLowercase: false,
-    containUppercase: false,
-    containNumber: false,
-    containUnderscore: false
+    containsLowerCase: false,
+    containsUpperCase: false,
+    containsNumber: false,
+    containsUnderscore: false
   }
 }
 

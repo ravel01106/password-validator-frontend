@@ -17,14 +17,16 @@ const validatePassword = async (validator: Validator, password:string): Promise<
     containNumber: true,
     containUnderscore: true
   }
-  if (passwordValidatorResultDTO.errorMessage !== ""){
-    const errorMessage = passwordValidatorResultDTO.errorMessage.toLowerCase()
-    passwordValidatorResult.valid = false
-    passwordValidatorResult.lengthValid = !errorMessage.includes("length")
-    passwordValidatorResult.containUpperCase = !errorMessage.includes("uppercase")
-    passwordValidatorResult.containLowerCase = !errorMessage.includes("lowercase")
-    passwordValidatorResult.containNumber = !errorMessage.includes("number")
-    passwordValidatorResult.containUnderscore = !errorMessage.includes("underscore")
+  if (passwordValidatorResultDTO){
+    if (passwordValidatorResultDTO.errorMessage !== ""){
+      const errorMessage = passwordValidatorResultDTO.errorMessage.toLowerCase()
+      passwordValidatorResult.valid = false
+      passwordValidatorResult.lengthValid = !errorMessage.includes("length")
+      passwordValidatorResult.containUpperCase = !errorMessage.includes("uppercase")
+      passwordValidatorResult.containLowerCase = !errorMessage.includes("lowercase")
+      passwordValidatorResult.containNumber = !errorMessage.includes("number")
+      passwordValidatorResult.containUnderscore = !errorMessage.includes("underscore")
+    }
   }
 
 

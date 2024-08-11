@@ -2,4 +2,5 @@ import { PasswordValidatorResult } from "../../../../../../domain/entities/Passw
 
 export interface MessageResultConditionsProps {
   passwordValidatorResult: PasswordValidatorResult
+  textResult:string
 }

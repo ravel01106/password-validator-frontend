@@ -2,31 +2,48 @@ import React from "react";
 import Title from "../../shared/Title";
 import { PasswordValidatorResult } from "../../../../domain/entities/PasswordValidatorResult";
 import MessageResultConditions from "./components/MessageResultConditions/MessageResultConditions";
+import ValidatorService from "../../../../domain/services/ValidatorService";
+import ValidatorContext from "../../context/ValidatorContext";
 
 const PasswordValidatorPage = () => {
   const [password, setPassword] = React.useState("");
   const [showResult, setShowResult] = React.useState(false);
 
   const [passwordValidatorResult, setPasswordValidatorResult] = React.useState({} as PasswordValidatorResult)
+  const [textResult, setTextResult] = React.useState("")
+
+  const {validator} = React.useContext(ValidatorContext)
 
   const sendPasswordToValidate = () => {
+    async function obtainPasswordValidatorResult(){
+     try {
+      const passwordValidatorResult = await ValidatorService.validatePassword(validator, password)
+      setPasswordValidatorResult(passwordValidatorResult)
+     } catch (error) {
+      console.log("error");
+     }
+    }
+
+
     if (password === ""){
       alert("fill the field !!!!")
     }else{
       setShowResult(true)
-      setPasswordValidatorResult({
-        valid: true,
-        lengthValid: true,
-        containUpperCase: true,
-        containLowerCase: true,
-        containNumber: true,
-        containUnderscore: true
-      })
+      obtainPasswordValidatorResult()
     }
   }
   const onHandleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
   }
+
+  React.useEffect(() => {
+    if (passwordValidatorResult.valid){
+      setTextResult("The password is valid !!!")
+    }else{
+      setTextResult("The password is not valid !!!")
+    }
+  },[passwordValidatorResult.valid])
+
 
   return (
     <div
@@ -47,7 +64,7 @@ const PasswordValidatorPage = () => {
       </div>
         {
           showResult ? (
-            <MessageResultConditions passwordValidatorResult={passwordValidatorResult} />
+            <MessageResultConditions passwordValidatorResult={passwordValidatorResult} textResult={textResult} />
           ): (
             <div className="h-64 w-subContainerWidth text-center">
               <p>Enter a password that meets the conditions of the validator.</p>

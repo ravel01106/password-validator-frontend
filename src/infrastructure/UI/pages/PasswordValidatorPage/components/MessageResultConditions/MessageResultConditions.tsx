@@ -11,9 +11,9 @@ const MessageResultConditions = ({passwordValidatorResult}: MessageResultConditi
         <div className="w-96">
           <nav className="flex flex-row text-black text-xl pb-1"> {passwordValidatorResult.lengthValid ? (<FaCheckCircle />): (<FaCircleXmark />)} <p className="px-4">Check length</p></nav>
           <nav className="flex flex-row text-black text-xl pb-1"> {passwordValidatorResult.containUpperCase ? (<FaCheckCircle />): (<FaCircleXmark />)} <p className="px-4">Check uppercase</p></nav>
-          <nav className="flex flex-row text-black text-xl pb-1"> {passwordValidatorResult.containLowerCase ? (<FaCheckCircle />): (<FaCircleXmark />)} <p className="px-4">Check numbers</p></nav>
-          <nav className="flex flex-row text-black text-xl pb-1"> {passwordValidatorResult.containNumber ? (<FaCheckCircle />): (<FaCircleXmark />)} <p className="px-4">Check underscore</p></nav>
-          <nav className="flex flex-row text-black text-xl pb-1"> {passwordValidatorResult.containUnderscore ? (<FaCheckCircle />): (<FaCircleXmark />)} <p className="px-4">Check lowercase</p></nav>
+          <nav className="flex flex-row text-black text-xl pb-1"> {passwordValidatorResult.containLowerCase ? (<FaCheckCircle />): (<FaCircleXmark />)} <p className="px-4">Check lowercase</p></nav>
+          <nav className="flex flex-row text-black text-xl pb-1"> {passwordValidatorResult.containNumber ? (<FaCheckCircle />): (<FaCircleXmark />)} <p className="px-4">Check number</p></nav>
+          <nav className="flex flex-row text-black text-xl pb-1"> {passwordValidatorResult.containUnderscore ? (<FaCheckCircle />): (<FaCircleXmark />)} <p className="px-4">Check underscore</p></nav>
         </div>
       </div>
   )

@@ -7,10 +7,10 @@ import { IValidatorContextProps } from '../context/IValidatorContextProps'
 const CustomProvider = ({children}:ICustomProviderProp) => {
   const initValidator:Validator= {
     lengthValid:1,
-    containUppercase:false,
-    containLowercase:false,
-    containNumber:false,
-    containUnderscore:false,
+    containsUpperCase:false,
+    containsLowerCase:false,
+    containsNumber:false,
+    containsUnderscore:false,
 
   }
 

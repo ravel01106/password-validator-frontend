@@ -1,7 +1,7 @@
 export type Validator = {
   lengthValid:number,
-  containUppercase:boolean,
-  containLowercase:boolean,
-  containNumber:boolean,
-  containUnderscore:boolean
+  containsUpperCase:boolean,
+  containsLowerCase:boolean,
+  containsNumber:boolean,
+  containsUnderscore:boolean
 }
